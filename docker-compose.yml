@@ -1,0 +1,12 @@
+version:  '3'
+services:
+  tensorflow-notebook:
+      image: ${JUPYTER_VERSION}
+      volumes:
+        - ${LOCAL_WORKING_DIR}:/home/jovyan/work
+        - ${LOCAL_DATASETS}:/home/jovyan/work/datasets
+        - ${LOCAL_MODULES}:/home/jovyan/work/modules
+      user: root
+      ports:
+        - ${PORT}:8888
+      container_name:   jupyter_notebook
