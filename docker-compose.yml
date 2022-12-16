@@ -1,8 +1,12 @@
 version:  '3'
+networks:
+  default:
+      name: ${NETWORK_NAME}
 services:
   tensorflow-notebook:
       image: ${JUPYTER_VERSION}
       volumes:
+        - ./etc/.jupyter:/home/jovyan/.jupyter
         - ${LOCAL_WORKING_DIR}:/home/jovyan/work
         - ${LOCAL_DATASETS}:/home/jovyan/work/datasets
         - ${LOCAL_MODULES}:/home/jovyan/work/modules
